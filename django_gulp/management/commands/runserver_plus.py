@@ -93,8 +93,8 @@ class Command(DjangoExtensionsRunserverCommand):
             [gulp_command],
             shell=True,
             stdin=subprocess.PIPE,
-            stdout=self.stdout,
-            stderr=self.stderr)
+            stdout=self.stdout._out,
+            stderr=self.stderr._out)
 
         if self.gulp_process.poll() is not None:
             raise CommandError('gulp failed to start')
